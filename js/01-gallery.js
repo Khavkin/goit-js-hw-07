@@ -5,6 +5,8 @@ import 'https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.
 const gallery = document.querySelector('.gallery');
 
 const addStyleSheet = fileName => {
+  // add stylesheet to page
+
   const head = document.head;
   const link = document.createElement('link');
 
@@ -32,10 +34,6 @@ const showOriginalImage = event => {
   }
 };
 
-addStyleSheet('https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css');
-
-gallery.addEventListener('click', showOriginalImage);
-
 const createGallery = () => {
   const result = [...galleryItems].reduce((markup, { preview, original, description }) => {
     return (
@@ -56,6 +54,10 @@ const createGallery = () => {
   gallery.insertAdjacentHTML('afterbegin', result);
 };
 
+addStyleSheet('https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css');
+
 createGallery();
+
+gallery.addEventListener('click', showOriginalImage);
 
 console.log(galleryItems);
